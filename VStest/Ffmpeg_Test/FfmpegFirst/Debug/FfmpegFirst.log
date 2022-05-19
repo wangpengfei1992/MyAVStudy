@@ -1,0 +1,15 @@
+﻿  FfmpegFirst.cpp
+D:\install\ffmpeg_test\ffmpeg-n4.4-latest-win64-gpl-shared-4.4\include\libavutil\rational.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\wpf\vs\c1test\FfmpegFirst\FfmpegFirst.cpp(21,5): warning C4996: 'avcodec_register_all': 被声明为已否决
+FfmpegFirst.obj : error LNK2019: 无法解析的外部符号 _avcodec_configuration，函数 _main 中引用了该符号
+FfmpegFirst.obj : error LNK2019: 无法解析的外部符号 _avcodec_register_all，函数 _main 中引用了该符号
+FfmpegFirst.obj : error LNK2019: 无法解析的外部符号 _avformat_network_init，函数 _main 中引用了该符号
+D:\install\ffmpeg_test\ffmpeg-n4.4-latest-win64-gpl-shared-4.4\lib\\avcodec.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+D:\install\ffmpeg_test\ffmpeg-n4.4-latest-win64-gpl-shared-4.4\lib\\avdevice.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+D:\install\ffmpeg_test\ffmpeg-n4.4-latest-win64-gpl-shared-4.4\lib\\avfilter.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+D:\install\ffmpeg_test\ffmpeg-n4.4-latest-win64-gpl-shared-4.4\lib\\avformat.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+D:\install\ffmpeg_test\ffmpeg-n4.4-latest-win64-gpl-shared-4.4\lib\\avutil.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+D:\install\ffmpeg_test\ffmpeg-n4.4-latest-win64-gpl-shared-4.4\lib\\postproc.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+D:\install\ffmpeg_test\ffmpeg-n4.4-latest-win64-gpl-shared-4.4\lib\\swresample.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+D:\install\ffmpeg_test\ffmpeg-n4.4-latest-win64-gpl-shared-4.4\lib\\swscale.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+D:\wpf\vs\c1test\FfmpegFirst\Debug\FfmpegFirst.exe : fatal error LNK1120: 3 个无法解析的外部命令

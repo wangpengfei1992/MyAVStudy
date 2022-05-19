@@ -1,0 +1,6 @@
+﻿  FfmpegFirst.cpp
+D:\install\ffmpeg_test\ffmpeg-5.0.1-full_build-shared\include\libavutil\rational.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\wpf\vs\c1test\FfmpegFirst\FfmpegFirst.cpp(112,44): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\wpf\vs\c1test\FfmpegFirst\FfmpegFirst.cpp(109,16): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\wpf\vs\c1test\FfmpegFirst\FfmpegFirst.cpp(127,9): warning C4996: 'av_init_packet': 被声明为已否决
+  FfmpegFirst.vcxproj -> D:\wpf\vs\c1test\FfmpegFirst\x64\Debug\FfmpegFirst.exe
