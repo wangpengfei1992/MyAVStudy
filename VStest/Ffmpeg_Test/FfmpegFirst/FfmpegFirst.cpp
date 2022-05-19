@@ -28,6 +28,9 @@ int main()
 
    // printf("%s\n", avcodec_configuration()); //验证是否正常引用
    // avformat_network_init();
+
+    //整体流程：创建编码器->编码器上下文->输出上下文->输出流->文件流->重采样->输出AAC->关闭清理对象
+
     int ret = 0;
     char inputfile[] = "audio.pcm";
     char outputfile[] = "audio.aac";
