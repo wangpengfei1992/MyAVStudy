@@ -25,7 +25,7 @@ int main()
     //当前Ffmpeg的版本5.0
     //av_register_all(); //过期
     //avcodec_register_all();//过期
-
+    
    // printf("%s\n", avcodec_configuration()); //验证是否正常引用
    // avformat_network_init();
 
