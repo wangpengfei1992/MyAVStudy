@@ -13,7 +13,7 @@ extern "C" {
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_wpf_ffmpegtest_MainActivity_stringFromJNI(
+Java_com_wpf_ffmpegtest_FfmpegTools_stringFromJNI(
         JNIEnv *env,
         jobject /* this */) {
 
@@ -38,4 +38,11 @@ Java_com_wpf_ffmpegtest_MainActivity_stringFromJNI(
 
 
     return env->NewStringUTF(data);
+}
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_wpf_ffmpegtest_FfmpegTools_native_1start_1play(JNIEnv *env, jobject thiz, jstring path, jobject surface) {
+    // TODO: implement native_start_play()
+
+
 }

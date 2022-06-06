@@ -1,22 +1,17 @@
 package com.wpf.ffmpegtest
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.TextView
+
+import android.content.Intent
 import com.wpf.ffmpegtest.databinding.ActivityMainBinding
+import com.wpf.ffmpegtest.play.FfmpegPlayAct
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
 
-    private lateinit var binding: ActivityMainBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        // Example of a call to a native method
+    override fun init() {
         binding.sampleText.text = FfmpegTools.stringFromJNI()
+        binding.sampleText.setOnClickListener {
+            mContext?.startActivity(Intent(mContext,FfmpegPlayAct::class.java))
+        }
     }
 
 
