@@ -8,12 +8,18 @@ android {
 
     defaultConfig {
         applicationId "com.wpf.ffmpegtest"
-        minSdk 21
+        minSdk 23
         targetSdk 31
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+/*        externalNativeBuild {
+            cmake {
+                cFlags "-ferror-limit=0 -fPIC"
+                cppFlags ''
+            }
+        }*/
         externalNativeBuild {
             cmake {
                 cppFlags ''

@@ -5,6 +5,15 @@
 
 cmake_minimum_required(VERSION 3.10.2)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
+#SET(CMAKE_C_FLAGS "-Wl,-z,notext")
+#SET(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} " -fPIC")
+#SET(CMAKE_EXE_LINKER_FLAGS " -no-pie")
+if("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "x86_64"OR "${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "aarch64")
+    message(STATUS "x86_64 architecture detected - setting flag -fPIC")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+    set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fPIC")
+endif()
 # Declares and names the project.
 
 project("ffmpegtest")

@@ -18,5 +18,5 @@ object FfmpegTools {
      */
     external fun stringFromJNI(): String
 
-    external fun native_start_play(path: String, surface: Surface): String
+    external fun native_start_play(path: String, surface: Surface)
 }

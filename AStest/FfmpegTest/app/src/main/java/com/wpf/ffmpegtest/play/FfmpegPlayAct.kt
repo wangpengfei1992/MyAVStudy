@@ -2,6 +2,7 @@ package com.wpf.ffmpegtest.play
 
 import android.Manifest
 import android.content.Intent
+import android.graphics.PixelFormat
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
@@ -26,6 +27,9 @@ class FfmpegPlayAct : BaseActivity<ActFfmpegplayBinding>(){
     private val REQUEST_PERMISSION_CODE = 100
 
     override fun init() {
+        val holder = binding.sfvPlayer.holder
+        holder.setFormat(PixelFormat.RGBA_8888)
+
         binding.btPlay.setOnClickListener {
             val rxPermissions : RxPermissions =  RxPermissions(this)
             rxPermissions
