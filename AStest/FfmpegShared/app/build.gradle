@@ -5,15 +5,25 @@ plugins {
 
 android {
     compileSdk 31
-
     defaultConfig {
-        applicationId "com.wpf.ffmpegdemo"
+        applicationId "com.wpf.ffmpegshared"
         minSdk 21
         targetSdk 31
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            //配置自己写的代码生成的架构类型
+            cmake {
+                cppFlags ""
+                abiFilters 'armeabi-v7a'
+            }
+        }
+        ndk{
+            //配置第三方库的架构类型，由于我们这里只有armeabi-v7a的因此只配置了它
+            abiFilters 'armeabi-v7a'
+        }
     }
 
     buildTypes {
@@ -29,6 +39,20 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.10.2'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -40,4 +64,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation 'com.github.tbruyelle:rxpermissions:0.12'
+    implementation "io.reactivex.rxjava3:rxjava:3.1.5"
 }
