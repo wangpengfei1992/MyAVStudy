@@ -10,7 +10,7 @@ import android.view.Surface
 object FfmpegTools {
 
     init {
-        System.loadLibrary("ffmpegtest")
+        System.loadLibrary("ffmpegstatic")
     }
     /**
      * A native method that is implemented by the 'ffmpegtest' native library,
@@ -19,4 +19,5 @@ object FfmpegTools {
     external fun stringFromJNI(): String
 
     external fun native_start_play(path: String, surface: Surface)
+    external fun native_start_play2(path: String, surface: Surface)
 }

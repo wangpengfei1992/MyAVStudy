@@ -16,6 +16,7 @@ import com.wpf.ffmpegtest.FfmpegTools
 import com.wpf.ffmpegtest.databinding.ActFfmpegplayBinding
 import java.io.File
 import java.io.IOException
+import kotlin.concurrent.thread
 
 
 /**
@@ -42,6 +43,7 @@ class FfmpegPlayAct : BaseActivity<ActFfmpegplayBinding>(){
                     if (permission.granted) {
                         // `permission.name` is granted !
                         Log.e(TAG,"-----------granted")
+                        readFileInStore()
                     } else if (permission.shouldShowRequestPermissionRationale) {
                         // Denied permission without ask never again
                         Log.e(TAG,"-----------shouldShowRequestPermissionRationale")
@@ -87,7 +89,9 @@ class FfmpegPlayAct : BaseActivity<ActFfmpegplayBinding>(){
         var file = File(filePath)
         try {
             if (file.exists()) {
-                FfmpegTools.native_start_play(filePath,binding.sfvPlayer.holder.surface)
+                thread {
+                    FfmpegTools.native_start_play2(filePath,binding.sfvPlayer.holder.surface)
+                }
             }
         } catch (e: IOException) {
             e.printStackTrace()

@@ -4,19 +4,21 @@
 # Sets the minimum version of CMake required to build the native library.
 
 cmake_minimum_required(VERSION 3.10.2)
+
+
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 #SET(CMAKE_C_FLAGS "-Wl,-z,notext")
 #SET(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} " -fPIC")
 #SET(CMAKE_EXE_LINKER_FLAGS " -no-pie")
-if("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "x86_64"OR "${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "aarch64")
+#[[if("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "x86_64"OR "${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "aarch64")
     message(STATUS "x86_64 architecture detected - setting flag -fPIC")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
     set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fPIC")
-endif()
+endif()]]
 # Declares and names the project.
 
-project("ffmpegtest")
+project("ffmpegstatic")
 message(AUTHOR_WARNING  "CMAKE_MODULE_PATH>> ${ANDROID_ABI}")
 message(AUTHOR_WARNING  "CMAKE_CURRENT_SOURCE_DIR>> ${CMAKE_CURRENT_SOURCE_DIR}")
 
@@ -35,7 +37,7 @@ file(GLOB src_file ${CMAKE_SOURCE_DIR}/*.cpp)
 
 
 add_library( # Sets the name of the library.
-        ffmpegtest
+        ffmpegstatic
 
         # Sets the library as a shared library.
         SHARED
@@ -48,22 +50,44 @@ find_library( # Sets the name of the path variable.
 
         log)
 
-set(third-lib
-        avcodec
+#[[set(third-lib
         avfilter
         avformat
+        avcodec
         avutil
         swresample
         swscale
+        )]]
+set(third-lib
+        avformat
+        avcodec
+        avfilter
+        swresample
+        swscale
+        avutil
+        fdk-aac
+        x264
         )
-
+#记得添加本地库
+set(native-libs
+        android
+        mediandk
+        EGL
+        GLESv3
+        OpenSLES
+        log
+        m
+        z
+        )
 
 #导入第三方库
 target_link_libraries( # Specifies the target library.
-        ffmpegtest
+        ffmpegstatic
 
         ${log-lib}
-        ${third-lib})
+        ${third-lib}
+        ${native-libs}
+        )
 
 #[[引人静态库]]
 #
